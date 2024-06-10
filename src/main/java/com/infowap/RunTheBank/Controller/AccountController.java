@@ -13,8 +13,12 @@ import java.util.Map;
 @RequestMapping("/account")
 public class AccountController {
 
-    @Autowired
     private AccountService accountService;
+
+    @Autowired
+    public AccountController(AccountService accountService){
+        this.accountService = accountService;
+    }
 
     @PostMapping
     public ResponseEntity<Account> createAccount(@RequestBody Map<String, Object> payload) {

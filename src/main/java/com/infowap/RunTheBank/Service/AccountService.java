@@ -14,11 +14,14 @@ import java.util.Optional;
 @Service
 public class AccountService {
 
-    @Autowired
     private AccountRepository accountRepository;
+    private CustomerService customerService;
 
     @Autowired
-    private CustomerService customerService;
+    public AccountService(AccountRepository accountRepository, CustomerService customerService){
+        this.accountRepository = accountRepository;
+        this.customerService = customerService;
+    }
 
     public Account createAccount(Long customerId, String agency, Double initialBalance) {
         Customer customer = customerService.findById(customerId)
