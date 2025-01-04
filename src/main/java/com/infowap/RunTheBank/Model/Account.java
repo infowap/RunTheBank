@@ -14,7 +14,8 @@ public class Account {
     private Double balance;
     private String status;
 
-    @ManyToOne
+    @ManyToOne(optional = true)
+    @JoinColumn(name = "custome_id", referencedColumnName = "id", nullable = true)
     private Customer customer;
 
     public Long getId() {

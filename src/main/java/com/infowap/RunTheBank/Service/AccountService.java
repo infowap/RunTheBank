@@ -14,8 +14,8 @@ import java.util.Optional;
 @Service
 public class AccountService {
 
-    private AccountRepository accountRepository;
-    private CustomerService customerService;
+    private final AccountRepository accountRepository;
+    private final CustomerService customerService;
 
     @Autowired
     public AccountService(AccountRepository accountRepository, CustomerService customerService){
